@@ -28,6 +28,8 @@ steps:
     echo "Setting DevOps defaults..."
     az devops configure --defaults organization=https://dev.azure.com/opscosolutions project=$(projectName)
 
+    az pipelines list --query "[].name"
+
     echo "Resolving Pipeline ID for: $(buildPipelineName)..."
     PIPELINE_ID=$(az pipelines show --name "$(buildPipelineName)" --query id --output tsv)
 
